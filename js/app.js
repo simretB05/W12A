@@ -26,7 +26,17 @@ function callAxios(details){
     // create faliure  function to catch error if 
     // response status is not ok and display a message for users to try again
         function failureFunction(error) {
-            get_main.insertAdjacentHTML(`beforebegin`,`<h3>try again</h3>`)
+            get_main.insertAdjacentHTML( `beforebegin`, `<h3>try again</h3>` )
+            if (error.response) {
+                console.log(error.response);
+                console.log( "server responded" );
+                 get_main.insertAdjacentElement( `afterbegin`, `<img src="/images/spinner.gif">` )
+              } else if (error.request) {
+                console.log( "network error" );
+                get_main.insertAdjacentElement( `afterbegin`, `<img src="/images/spinner.gif">` )
+              } else {
+                console.log(error);
+              }
     }
         
     // used axios to request data from a given url"data sorce" 
