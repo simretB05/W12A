@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+#header {
+  min-height: 10vh;
+  background-color: black;
+  padding: 16px;
+}
+#header h2 {
+  color: rgb(154, 150, 150);
+}
+
+main {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr;
+  min-height: 80vh;
+}
+main .main-section {
+  margin: 40px;
+  display: grid;
+  place-items: center;
+  width: 80%;
+  grid-template-columns: 1fr;
+}
+main .main-section div {
+  width: 100%;
+  width: 50%;
+  display: grid;
+  place-items: center;
+  align-self: start;
+  background-color: white;
+  margin-bottom: 1rem;
+  border: 2px solid lightgray;
+  border-radius: 10px;
+  min-height: 50%;
+}
+main .main-section div img {
+  margin-top: 16px;
+}
+main .main-section div h3 {
+  margin: 16px;
+}
+main .main-section div p {
+  width: 80%;
+  text-align: center;
+}
+main button {
+  width: 300px;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  font-size: 1.2rem;
+  border-radius: 15px;
+}
+main button:hover {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+}
+main button:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+#footer {
+  min-height: 10vh;
+}
+
+/*# sourceMappingURL=style.css.map */
