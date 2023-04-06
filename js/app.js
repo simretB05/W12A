@@ -36,7 +36,8 @@ function callAxios(details){
                 get_main.insertAdjacentElement( `afterbegin`, `<img src="/images/spinner.gif">` )
               } else {
                 console.log(error);
-              }
+            }
+            
     }
         
     // used axios to request data from a given url"data sorce" 
