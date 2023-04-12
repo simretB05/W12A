@@ -1,44 +1,33 @@
-
-
 //selected html tag with querySelector
 let get_main = document.querySelector( `.main-section` )
 
-//created a function that takes details for parameter and 
-function callAxios(details){
-    
+
 // created a  successFunction with response argument  and used a loop to
 //  loop through the response data and display the deta dinamicaly 
 // in HTML this function gets the response when response status is ok
-    function successFunction( response ){
+function successFunction( response ){
         
-        for ( let i = 0; i < response[`data`][`categories`].length; i++ ){
-            get_main.insertAdjacentHTML( `afterbegin`, `
-            <div >
-                <img src="${ response[`data`][`categories`][i][`strCategoryThumb`] }">
-                <h3>${ response[`data`][`categories`][i][`strCategory`] }</h3>
-                <p>${ response[`data`][`categories`][i][`strCategoryDescription`] }</p>
-            </div>` )
-            // .slice(0, 7)
-        }
-    
-    
+    for ( let i = 0; i < response[`data`][`categories`].length; i++ ){
+        get_main.insertAdjacentHTML( `afterbegin`, `
+        <div >
+            <img src="${ response[`data`][`categories`][i][`strCategoryThumb`] }">
+            <h3>${ response[`data`][`categories`][i][`strCategory`] }</h3>
+            <p>${ response[`data`][`categories`][i][`strCategoryDescription`] }</p>
+        </div>` )
+        
     }
-    // create faliure  function to catch error if 
-    // response status is not ok and display a message for users to try again
-        function failureFunction(error) {
-            get_main.insertAdjacentHTML( `beforebegin`, `<h3>try again</h3>` )
-            if (error.response) {
-                console.log(error.response);
-                console.log( "server responded" );
-                 get_main.insertAdjacentElement( `afterbegin`, `<img src="/images/spinner.gif">` )
-              } else if (error.request) {
-                console.log( "network error" );
-                get_main.insertAdjacentElement( `afterbegin`, `<img src="/images/spinner.gif">` )
-              } else {
-                console.log(error);
-            }
-            
-    }
+
+
+}
+// create faliure  function to catch error if 
+// response status is not ok and display a message for users to try again
+    function failureFunction(error) {
+        get_main.insertAdjacentHTML( `beforebegin`, `<h3>try again</h3>` )
+       
+        
+}
+//created a function that takes details for parameter and 
+function callAxios(details){
         
     // used axios to request data from a given url"data sorce" 
     // and then use the success and the failure functions to display responce or faliure message to customers
